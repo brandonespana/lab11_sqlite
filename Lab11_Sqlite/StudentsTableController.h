@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface StudentsTableController : UITableViewController
-@property(strong,nonatomic)NSArray* courseStudents;
+//@property(strong,nonatomic)NSArray* courseStudents;
+@property(strong,nonatomic)NSString* courseName;
 @end

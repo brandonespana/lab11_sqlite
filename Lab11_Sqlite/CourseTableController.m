@@ -8,17 +8,24 @@
 
 #import "CourseTableController.h"
 #import "StudentsTableController.h"
+#import "CourseDBManager.h"
 
 @interface CourseTableController ()
 @property(strong,nonatomic) NSArray* courses;
 @property(strong,nonatomic) NSArray* students;
+
+@property(strong,nonatomic) CourseDBManager* dbManager;
 @end
 
 @implementation CourseTableController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.courses = @[@"SER 321",@"SER 423", @"CST 450"];
+    self.dbManager = [[CourseDBManager alloc]initDatabaseName:@"coursedb"];
+    
+    self.courses = [self.dbManager executeQuery:@"select coursename from course;"];
+    
+    //self.courses = @[@"SER 321",@"SER 423", @"CST 450"];
     self.students = @[@"Brandon Espana", @"Ivan Spain", @"Rando Spana"];
 }
 
@@ -27,16 +34,13 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return self.courses.count;
 }
@@ -46,7 +50,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"courseCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = [self.courses objectAtIndex:indexPath.row];
+    //cell.textLabel.text = [self.courses objectAtIndex:indexPath.row];
+    cell.textLabel.text = self.courses[indexPath.row][0];
     return cell;
 }
 
@@ -94,7 +99,9 @@
     // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:@"showStudents"]) {
         StudentsTableController* destinationController = segue.destinationViewController;
-        destinationController.courseStudents = self.students;
+        //destinationController.courseStudents = self.students;
+        NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
+        destinationController.courseName = self.courses[indexPath.row][0];
     }
 }
 

@@ -7,15 +7,23 @@
 //
 
 #import "StudentsTableController.h"
+#import "CourseDBManager.h"
 
 @interface StudentsTableController ()
- 
+@property(strong,nonatomic)NSArray* studentList;
+@property(strong,nonatomic)CourseDBManager* dbManager;
+@property(strong,nonatomic)NSString* query;
 @end
 
 @implementation StudentsTableController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.query = [NSString stringWithFormat:@"select name from student,studenttakes,course where course.coursename = '%@' and course.courseid = studenttakes.courseid and student.studentid = studenttakes.studentid;",self.courseName];
+
+    self.dbManager = [[CourseDBManager alloc]initDatabaseName:@"coursedb"];
+    self.studentList = [self.dbManager executeQuery:self.query];
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -40,7 +48,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return self.courseStudents.count;
+    return self.studentList.count;
 }
 
 
@@ -48,7 +56,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"studentCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = [self.courseStudents objectAtIndex:indexPath.row];
+    //cell.textLabel.text = [self.courseStudents objectAtIndex:indexPath.row];
+    cell.textLabel.text = self.studentList[indexPath.row][0];
     return cell;
 }
 

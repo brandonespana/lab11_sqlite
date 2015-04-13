@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>DC93A03A-AD33-47F1-92A4-4AD1393B80CA</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Lab11_Sqlite</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>7FD3230750574D2AEDC50EAA1977326F54E51818</key>
+		<string>https://github.com/brandonespana/lab11_sqlite.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Lab11_Sqlite.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>7FD3230750574D2AEDC50EAA1977326F54E51818</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/brandonespana/lab11_sqlite.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>7FD3230750574D2AEDC50EAA1977326F54E51818</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7FD3230750574D2AEDC50EAA1977326F54E51818</string>
+			<key>IDESourceControlWCCName</key>
+			<string>lab11_sqlite</string>
+		</dict>
+	</array>
+</dict>
+</plist>

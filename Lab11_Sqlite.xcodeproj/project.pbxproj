@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA0861641ADC381B00584B46 /* CourseDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0861631ADC381B00584B46 /* CourseDBManager.m */; };
+		AA0861661ADC3A9C00584B46 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0861651ADC3A9C00584B46 /* libsqlite3.dylib */; };
+		AA08616A1ADC3BD200584B46 /* coursedb.db in Resources */ = {isa = PBXBuildFile; fileRef = AA0861691ADC3BD200584B46 /* coursedb.db */; };
 		AA44D4C61AD59DAB00196E86 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA44D4C51AD59DAB00196E86 /* main.m */; };
 		AA44D4C91AD59DAB00196E86 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA44D4C81AD59DAB00196E86 /* AppDelegate.m */; };
 		AA44D4CC1AD59DAB00196E86 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA44D4CB1AD59DAB00196E86 /* ViewController.m */; };
@@ -29,6 +32,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA0861621ADC381B00584B46 /* CourseDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseDBManager.h; sourceTree = "<group>"; };
+		AA0861631ADC381B00584B46 /* CourseDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseDBManager.m; sourceTree = "<group>"; };
+		AA0861651ADC3A9C00584B46 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		AA0861691ADC3BD200584B46 /* coursedb.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = coursedb.db; sourceTree = "<group>"; };
 		AA44D4C01AD59DAA00196E86 /* Lab11_Sqlite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lab11_Sqlite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA44D4C41AD59DAB00196E86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA44D4C51AD59DAB00196E86 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -53,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA0861661ADC3A9C00584B46 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +77,7 @@
 		AA44D4B71AD59DAA00196E86 = {
 			isa = PBXGroup;
 			children = (
+				AA0861651ADC3A9C00584B46 /* libsqlite3.dylib */,
 				AA44D4C21AD59DAA00196E86 /* Lab11_Sqlite */,
 				AA44D4DC1AD59DAB00196E86 /* Lab11_SqliteTests */,
 				AA44D4C11AD59DAA00196E86 /* Products */,
@@ -99,6 +108,8 @@
 				AA44D4EA1AD59EDC00196E86 /* CourseTableController.m */,
 				AA44D4EC1AD5A13500196E86 /* StudentsTableController.h */,
 				AA44D4ED1AD5A13500196E86 /* StudentsTableController.m */,
+				AA0861621ADC381B00584B46 /* CourseDBManager.h */,
+				AA0861631ADC381B00584B46 /* CourseDBManager.m */,
 			);
 			path = Lab11_Sqlite;
 			sourceTree = "<group>";
@@ -106,6 +117,7 @@
 		AA44D4C31AD59DAB00196E86 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AA0861691ADC3BD200584B46 /* coursedb.db */,
 				AA44D4C41AD59DAB00196E86 /* Info.plist */,
 				AA44D4C51AD59DAB00196E86 /* main.m */,
 			);
@@ -211,6 +223,7 @@
 			files = (
 				AA44D4CF1AD59DAB00196E86 /* Main.storyboard in Resources */,
 				AA44D4D41AD59DAB00196E86 /* LaunchScreen.xib in Resources */,
+				AA08616A1ADC3BD200584B46 /* coursedb.db in Resources */,
 				AA44D4D11AD59DAB00196E86 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -229,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA0861641ADC381B00584B46 /* CourseDBManager.m in Sources */,
 				AA44D4CC1AD59DAB00196E86 /* ViewController.m in Sources */,
 				AA44D4C91AD59DAB00196E86 /* AppDelegate.m in Sources */,
 				AA44D4C61AD59DAB00196E86 /* main.m in Sources */,
@@ -426,6 +440,7 @@
 				AA44D4E51AD59DAB00196E86 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AA44D4E61AD59DAB00196E86 /* Build configuration list for PBXNativeTarget "Lab11_SqliteTests" */ = {
 			isa = XCConfigurationList;
@@ -434,6 +449,7 @@
 				AA44D4E81AD59DAB00196E86 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
