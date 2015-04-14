@@ -125,6 +125,24 @@
 }
 
 -(BOOL)executeUpdate:(NSString *)query {
+    NSLog(@"Received this query: %@",query);
+    
+    sqlite3* dbConnection;
+    NSString * dbPath = [self.documentsDirectory stringByAppendingPathComponent:self.databaseFilename];
+    int openResult = sqlite3_open([dbPath UTF8String], &dbConnection);
+    
+    if(openResult == SQLITE_OK){
+        sqlite3_stmt *compiledStmt;
+        int preparedStmt = sqlite3_prepare_v2(dbConnection, [query UTF8String], -1, &compiledStmt, NULL);
+        if(preparedStmt == SQLITE_OK){
+            while (sqlite3_step(compiledStmt) != SQLITE_DONE) {
+                
+            }
+        }
+        sqlite3_finalize(compiledStmt);
+    }
+    
+    sqlite3_close(dbConnection);
     BOOL ret = NO;
     return ret;
 }

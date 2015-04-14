@@ -23,10 +23,11 @@
     [super viewDidLoad];
     self.dbManager = [[CourseDBManager alloc]initDatabaseName:@"coursedb"];
     
-    self.courses = [self.dbManager executeQuery:@"select coursename from course;"];
+    [self reloadTable];
+    //self.courses = [self.dbManager executeQuery:@"select coursename from course;"];
     
     //self.courses = @[@"SER 321",@"SER 423", @"CST 450"];
-    self.students = @[@"Brandon Espana", @"Ivan Spain", @"Rando Spana"];
+    //self.students = @[@"Brandon Espana", @"Ivan Spain", @"Rando Spana"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,6 +56,11 @@
     return cell;
 }
 
+-(void)reloadTable{
+    self.courses = [self.dbManager executeQuery:@"select coursename from course;"];
+    [self.tableView reloadData];
+    NSLog(@"This many courses: %lu",(unsigned long)[self.courses count]);
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -97,15 +103,18 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    NSLog(@"Checking segue identifier");
+    NSLog(@"the identifier is: %@",segue.identifier);
     if ([segue.identifier isEqualToString:@"showStudents"]) {
+        NSLog(@"going to students");
         StudentsTableController* destinationController = segue.destinationViewController;
         //destinationController.courseStudents = self.students;
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
         destinationController.courseName = self.courses[indexPath.row][0];
     }
-//    else if([segue.identifier isEqualToString:@"addCourse"]){
-//        
-//    }
+    else if([segue.identifier isEqualToString:@"addCourse"]){
+        NSLog(@"Going to add course");
+    }
 }
 
 

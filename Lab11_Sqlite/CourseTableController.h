@@ -10,4 +10,5 @@
 
 @interface CourseTableController : UITableViewController
 
+-(void)reloadTable;
 @end

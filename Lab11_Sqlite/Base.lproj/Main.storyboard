@@ -5,58 +5,58 @@
     </dependencies>
     <scenes>
         <!--Add a Course-->
-        <scene sceneID="Obl-nd-ga3">
+        <scene sceneID="Zfi-8h-bMN">
             <objects>
-                <viewController id="AEO-19-uvC" customClass="AddCourseController" sceneMemberID="viewController">
+                <viewController id="fRO-uv-iGh" customClass="AddCourseController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jq3-6J-8zv"/>
-                        <viewControllerLayoutGuide type="bottom" id="7dq-WH-PeR"/>
+                        <viewControllerLayoutGuide type="top" id="125-tR-rv1"/>
+                        <viewControllerLayoutGuide type="bottom" id="xs8-SR-jCi"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="m49-G7-lZM" customClass="AddCourseController">
+                    <view key="view" contentMode="scaleToFill" id="cpW-Gd-fKP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Course Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3q-vW-rXF">
-                                <rect key="frame" x="25" y="154" width="111" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Course Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6r-PB-8y4">
+                                <rect key="frame" x="10" y="116" width="111" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DwY-pU-Tfj">
-                                <rect key="frame" x="144" y="151" width="194" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m3G-Qf-21t">
-                                <rect key="frame" x="144" y="196" width="194" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Course ID:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yD3-qp-WLF">
-                                <rect key="frame" x="54" y="199" width="82" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Course ID:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEd-Rn-8Cv">
+                                <rect key="frame" x="39" y="174" width="82" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qqe-nw-LRM">
+                                <rect key="frame" x="123" y="113" width="236" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aqe-M4-IQ4">
+                                <rect key="frame" x="123" y="165" width="236" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="courseId" destination="m3G-Qf-21t" id="DZT-Co-Nv0"/>
-                            <outlet property="courseName" destination="DwY-pU-Tfj" id="EcH-5L-PZm"/>
-                        </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Add a Course" id="0lt-fB-r4p">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="56u-2v-Y3b">
+                    <navigationItem key="navigationItem" title="Add a Course" id="il1-yl-QGz">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="PX2-tR-ORX">
                             <connections>
-                                <action selector="clickedDone:" destination="AEO-19-uvC" id="iq0-to-Y0o"/>
+                                <action selector="clickedDone:" destination="fRO-uv-iGh" id="wmV-zx-zj2"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="courseId" destination="aqe-M4-IQ4" id="pkU-SD-H0b"/>
+                        <outlet property="courseName" destination="qqe-nw-LRM" id="Cnc-S8-1sk"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YRf-ya-89l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TeN-oq-qZ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="772.5" y="1286.5"/>
+            <point key="canvasLocation" x="313.5" y="1286.5"/>
         </scene>
         <!--Students In Course-->
         <scene sceneID="DKE-3m-5KP">
@@ -329,7 +329,7 @@
                     <navigationItem key="navigationItem" title="Courses" id="tdX-fX-Gpo">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="1PW-v7-ELU">
                             <connections>
-                                <segue destination="AEO-19-uvC" kind="show" identifier="addCourse" id="eq2-Pp-lHL"/>
+                                <segue destination="fRO-uv-iGh" kind="show" identifier="addCourse" id="JM4-F1-4cw"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
