@@ -103,6 +103,9 @@
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
         destinationController.courseName = self.courses[indexPath.row][0];
     }
+//    else if([segue.identifier isEqualToString:@"addCourse"]){
+//        
+//    }
 }
 
 

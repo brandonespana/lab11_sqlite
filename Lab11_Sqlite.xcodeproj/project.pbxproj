@@ -19,6 +19,7 @@
 		AA44D4E01AD59DAB00196E86 /* Lab11_SqliteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA44D4DF1AD59DAB00196E86 /* Lab11_SqliteTests.m */; };
 		AA44D4EB1AD59EDC00196E86 /* CourseTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA44D4EA1AD59EDC00196E86 /* CourseTableController.m */; };
 		AA44D4EE1AD5A13500196E86 /* StudentsTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA44D4ED1AD5A13500196E86 /* StudentsTableController.m */; };
+		AA502C0A1ADDBF4F00076A4A /* AddCourseController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA502C091ADDBF4F00076A4A /* AddCourseController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		AA44D4EA1AD59EDC00196E86 /* CourseTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseTableController.m; sourceTree = "<group>"; };
 		AA44D4EC1AD5A13500196E86 /* StudentsTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentsTableController.h; sourceTree = "<group>"; };
 		AA44D4ED1AD5A13500196E86 /* StudentsTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentsTableController.m; sourceTree = "<group>"; };
+		AA502C081ADDBF4F00076A4A /* AddCourseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCourseController.h; sourceTree = "<group>"; };
+		AA502C091ADDBF4F00076A4A /* AddCourseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCourseController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,8 @@
 				AA44D4ED1AD5A13500196E86 /* StudentsTableController.m */,
 				AA0861621ADC381B00584B46 /* CourseDBManager.h */,
 				AA0861631ADC381B00584B46 /* CourseDBManager.m */,
+				AA502C081ADDBF4F00076A4A /* AddCourseController.h */,
+				AA502C091ADDBF4F00076A4A /* AddCourseController.m */,
 			);
 			path = Lab11_Sqlite;
 			sourceTree = "<group>";
@@ -243,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA0861641ADC381B00584B46 /* CourseDBManager.m in Sources */,
+				AA502C0A1ADDBF4F00076A4A /* AddCourseController.m in Sources */,
 				AA44D4CC1AD59DAB00196E86 /* ViewController.m in Sources */,
 				AA44D4C91AD59DAB00196E86 /* AppDelegate.m in Sources */,
 				AA44D4C61AD59DAB00196E86 /* main.m in Sources */,

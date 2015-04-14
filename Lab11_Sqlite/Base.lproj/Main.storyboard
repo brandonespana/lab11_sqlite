@@ -7,12 +7,12 @@
         <!--Add a Course-->
         <scene sceneID="Obl-nd-ga3">
             <objects>
-                <viewController id="AEO-19-uvC" sceneMemberID="viewController">
+                <viewController id="AEO-19-uvC" customClass="AddCourseController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jq3-6J-8zv"/>
                         <viewControllerLayoutGuide type="bottom" id="7dq-WH-PeR"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="m49-G7-lZM">
+                    <view key="view" contentMode="scaleToFill" id="m49-G7-lZM" customClass="AddCourseController">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -40,9 +40,17 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="courseId" destination="m3G-Qf-21t" id="DZT-Co-Nv0"/>
+                            <outlet property="courseName" destination="DwY-pU-Tfj" id="EcH-5L-PZm"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Add a Course" id="0lt-fB-r4p">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="56u-2v-Y3b"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="56u-2v-Y3b">
+                            <connections>
+                                <action selector="clickedDone:" destination="AEO-19-uvC" id="iq0-to-Y0o"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
@@ -321,7 +329,7 @@
                     <navigationItem key="navigationItem" title="Courses" id="tdX-fX-Gpo">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="1PW-v7-ELU">
                             <connections>
-                                <segue destination="AEO-19-uvC" kind="show" id="eq2-Pp-lHL"/>
+                                <segue destination="AEO-19-uvC" kind="show" identifier="addCourse" id="eq2-Pp-lHL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
