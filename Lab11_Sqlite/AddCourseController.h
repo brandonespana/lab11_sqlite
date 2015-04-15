@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CourseDBManager.h"
-
+#import "CourseTableController.h"
 @interface AddCourseController : UIViewController
-
+@property(strong,nonatomic) CourseTableController* parent;
 @end

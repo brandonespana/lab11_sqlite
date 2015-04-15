@@ -9,9 +9,10 @@
 #import "CourseTableController.h"
 #import "StudentsTableController.h"
 #import "CourseDBManager.h"
+#import "AddCourseController.h"
 
 @interface CourseTableController ()
-@property(strong,nonatomic) NSArray* courses;
+@property(strong,nonatomic) NSMutableArray* courses;
 @property(strong,nonatomic) NSArray* students;
 
 @property(strong,nonatomic) CourseDBManager* dbManager;
@@ -24,6 +25,7 @@
     self.dbManager = [[CourseDBManager alloc]initDatabaseName:@"coursedb"];
     
     [self reloadTable];
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
     //self.courses = [self.dbManager executeQuery:@"select coursename from course;"];
     
     //self.courses = @[@"SER 321",@"SER 423", @"CST 450"];
@@ -55,32 +57,64 @@
     cell.textLabel.text = self.courses[indexPath.row][0];
     return cell;
 }
+- (IBAction)reload:(id)sender {
+    [self reloadTable];
+}
 
 -(void)reloadTable{
+    NSLog(@"Reloading the data");
     self.courses = [self.dbManager executeQuery:@"select coursename from course;"];
     [self.tableView reloadData];
     NSLog(@"This many courses: %lu",(unsigned long)[self.courses count]);
 }
 
-/*
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
+
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSLog(@"Deleting a row");
         // Delete the row from the data source
+        [self.courses removeObjectAtIndex:indexPath.row];
+        NSLog(@"deleted from data source");
+        NSString* selectedCourse = self.courses[indexPath.row];
+        NSString* realString = [self.courses[indexPath.row] componentsJoinedByString:@","];
+        NSLog(@"type is: %@",[realString class]);
+        NSLog(@"selectedCours is: %@",realString);
+        //NSString* courseName = [selectedCourse stringByReplacingOccurrencesOfString:@"a" withString:@"3"];
+        NSLog(@"the SELECTED COURSE IS : %@",realString);
+        
+        
+        NSString* query1 = [NSString stringWithFormat:@"select courseid from course where coursename='%@';",realString];
+        NSLog(@"The first query is: %@",query1);
+        NSArray* result = [self.dbManager executeQuery:query1];
+        NSString* courseId = [result[0] componentsJoinedByString:@","];
+        NSLog(@"will delete the row with courseid = %@",courseId);
+        
+        NSString* query2 = [NSString stringWithFormat:@"delete from studenttakes where courseid=%@;",courseId];
+        [self.dbManager executeUpdate:query2];
+        
+    
+        NSString* query3 = [NSString stringWithFormat:@"delete from course where coursename='%@';",realString];
+        [self.dbManager executeUpdate:query3];
+        
+        
+        
+        
+        
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -113,6 +147,9 @@
         destinationController.courseName = self.courses[indexPath.row][0];
     }
     else if([segue.identifier isEqualToString:@"addCourse"]){
+        AddCourseController* destinationController = segue.destinationViewController;
+        NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
+        destinationController.parent = self;
         NSLog(@"Going to add course");
     }
 }

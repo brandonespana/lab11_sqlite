@@ -83,6 +83,7 @@
 }
 
 -(NSArray *)executeQuery:(NSString *)query {
+    NSLog(@"Executing this query: %@",query);
     sqlite3 * sqlite3DB;
     self.arrResults = [[NSMutableArray alloc] init];
     self.arrColNames = [[NSMutableArray alloc] init];
@@ -112,7 +113,7 @@
                 }
                 if (dataRow.count > 0) {
                     [self.arrResults addObject: dataRow];
-                    //NSLog(@"adding %@ to result",arrDataRow);
+                    NSLog(@"adding %@ to result",dataRow);
                 }
             }
         } else {

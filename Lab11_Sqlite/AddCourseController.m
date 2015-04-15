@@ -13,7 +13,6 @@
 @interface AddCourseController ()
 @property (weak, nonatomic) IBOutlet UITextField *courseName;
 @property (weak, nonatomic) IBOutlet UITextField *courseId;
-@property (strong, nonatomic)CourseTableController* parent;
 @property (strong, nonatomic)CourseDBManager* dbManager;
 
 @end
@@ -44,8 +43,9 @@
         theMessage = [NSString stringWithFormat:@"Course name %@ ,id %@",name,cid];
         UIAlertView* addCourseAlert = [[UIAlertView alloc] initWithTitle:@"Added the Course" message:theMessage delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
 
-        [addCourseAlert show];
         [self.parent reloadTable];
+        [addCourseAlert show];
+        
         [[self navigationController]popViewControllerAnimated:YES ];
     }
     else{
