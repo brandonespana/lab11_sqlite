@@ -37,6 +37,11 @@
     self.email.text = self.studentResults[0][2];
     self.studentid.text = self.studentResults[0][3];
     
+    self.name.delegate = self;
+    self.major.delegate = self;
+    self.email.delegate = self;
+    self.studentid.delegate = self;
+    
     self.dropPicker = [[UIPickerView alloc]init];
     self.dropPicker.delegate = self;
     self.dropPicker.dataSource = self;
@@ -56,17 +61,8 @@
     
     NSString* query2 = [NSString stringWithFormat:@"select coursename from course where course.courseid not in (select courseid from studenttakes where studenttakes.studentid=%@);",self.studentid.text];
     self.notEnrolledResults = [self.dbManager executeQuery:query2];
-    
-//    
-//    NSLog(@"enrolled in: ");
-//    for(int i = 0; i < [self.enrolledResults count]; i++){
-//        NSLog(@"course: %@",self.enrolledResults[i][0]);
-//    }
-//    
-//    NSLog(@"length of enrolled results is %lu",(unsigned long)[self.enrolledResults count]);
-//    NSLog(@"loaded student details");
-    // Do any additional setup after loading the view, typically from a nib.
 }
+
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     if (pickerView == self.dropPicker) {
         [self.enrolledCourses resignFirstResponder];
@@ -103,8 +99,31 @@
 }
 
 - (IBAction)removeStudent:(id)sender {
+    NSString* deleteQuery = [NSString stringWithFormat:@"delete from studenttakes where studentid=%@;",self.studentid.text];
+    [self.dbManager executeUpdate:deleteQuery];
+    deleteQuery = [NSString stringWithFormat:@"delete from student where name='%@';",self.name.text];
+    [self.dbManager executeUpdate:deleteQuery];
+    
+    [self.parent reloadStudents];
+}
+
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
+-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [self.enrolledCourses resignFirstResponder];
+    [self.notEnrolledCourses resignFirstResponder];
+    [self.name resignFirstResponder];
+    [self.email resignFirstResponder];
+    [self.major resignFirstResponder];
+    [self.studentid resignFirstResponder];
     
 }
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

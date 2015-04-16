@@ -138,6 +138,8 @@
         //destinationController.courseStudents = self.students;
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
         destinationController.courseName = self.courses[indexPath.row][0];
+        NSLog(@"done preparing student segue");
+        
     }
     else if([segue.identifier isEqualToString:@"addCourse"]){
         AddCourseController* destinationController = segue.destinationViewController;

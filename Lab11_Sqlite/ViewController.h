@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StudentsTableController.h"
 
-@interface ViewController : UIViewController<UIPickerViewDelegate,UIPickerViewDataSource>
+@interface ViewController : UIViewController<UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate>
 @property(strong, nonatomic)NSArray* studentResults;
+@property(strong, nonatomic)StudentsTableController* parent;
+
 
 @end
 

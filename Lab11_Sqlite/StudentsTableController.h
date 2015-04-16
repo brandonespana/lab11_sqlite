@@ -11,4 +11,6 @@
 @interface StudentsTableController : UITableViewController
 //@property(strong,nonatomic)NSArray* courseStudents;
 @property(strong,nonatomic)NSString* courseName;
+
+-(void)reloadStudents;
 @end
