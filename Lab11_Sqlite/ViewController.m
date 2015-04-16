@@ -98,6 +98,15 @@
     }
 }
 
+-(void) reloadPickers{
+    NSString* query = [NSString stringWithFormat:@"select coursename from course, studenttakes, student where student.name = '%@' and student.studentid = studenttakes.studentid and course.courseid = studenttakes.courseid;",self.name.text];
+    self.enrolledResults = [self.dbManager executeQuery:query];
+    
+    NSString* query2 = [NSString stringWithFormat:@"select coursename from course where course.courseid not in (select courseid from studenttakes where studenttakes.studentid=%@);",self.studentid.text];
+    self.notEnrolledResults = [self.dbManager executeQuery:query2];
+    [self.parent reloadStudents];
+}
+
 - (IBAction)removeStudent:(id)sender {
     NSString* deleteQuery = [NSString stringWithFormat:@"delete from studenttakes where studentid=%@;",self.studentid.text];
     [self.dbManager executeUpdate:deleteQuery];
@@ -106,8 +115,44 @@
     
     [self.parent reloadStudents];
 }
+- (IBAction)dropCourse:(id)sender {
+    if ([self.enrolledCourses hasText]) {
+        NSString* getCourseIdQuery = [NSString stringWithFormat:@"select courseid from course where coursename='%@';",self.enrolledCourses.text];
+        NSArray* result = [self.dbManager executeQuery:getCourseIdQuery];
+        NSString* courseToDropId = result[0][0];
+        NSLog(@"about to drop this course: %@",courseToDropId);
+        
+        NSString* dropQuery = [NSString stringWithFormat:@"delete from studenttakes where studentid=%@ and courseid=%@",self.studentid.text,courseToDropId];
+        [self.dbManager executeUpdate:dropQuery];
+        self.enrolledCourses.text = @"";
+        [self reloadPickers];
+        
+    }
+    else{
+        UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"Drop Course" message:@"Select a course first" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
+        [alert show];
+    }
+}
 
+- (IBAction)addCourse:(id)sender {
+    if ([self.notEnrolledCourses hasText]) {
+        NSString* getCourseIdQuery = [NSString stringWithFormat:@"select courseid from course where coursename='%@';",self.notEnrolledCourses.text];
+        NSArray* result = [self.dbManager executeQuery:getCourseIdQuery];
+        NSString* courseIdToAdd = result[0][0];
+        NSLog(@"about to add this course: %@",courseIdToAdd);
+        
+        NSString* addQuery = [NSString stringWithFormat:@"insert into studenttakes values(%@, %@);",self.studentid.text,courseIdToAdd];
+        [self.dbManager executeUpdate:addQuery];
+        self.notEnrolledCourses.text = @"";
+        [self reloadPickers];
+    }
+    else{
+        UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"Add Course" message:@"Select a course first" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
+        [alert show];
+    }
+}
 
+                         
 -(BOOL) textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
     return YES;

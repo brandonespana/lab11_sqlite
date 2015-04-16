@@ -34,14 +34,15 @@
     NSString* theMessage;
     //UIAlertView* addCourseAlert = [[UIAlertView alloc] initWithTitle:@"Added the Course" message:theMessage delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
     
-    if([self.courseName hasText] && [self.courseId hasText]){
+    if([self.courseName hasText]){
         self.dbManager = [[CourseDBManager alloc]initDatabaseName:@"coursedb"];
-        NSString* query = [NSString stringWithFormat:@"insert into course values('%@', %@);",name,cid];
+//        NSString* query = [NSString stringWithFormat:@"insert into course values('%@', %@);",name,cid];
+        NSString* query = [NSString stringWithFormat:@"insert into course (coursename) values('%@');",name];
         [self.dbManager executeUpdate:query];
         
         
-        theMessage = [NSString stringWithFormat:@"Course name %@ ,id %@",name,cid];
-        UIAlertView* addCourseAlert = [[UIAlertView alloc] initWithTitle:@"Added the Course" message:theMessage delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
+        theMessage = [NSString stringWithFormat:@"Added the course: %@",name];
+        UIAlertView* addCourseAlert = [[UIAlertView alloc] initWithTitle:@"Add Course" message:theMessage delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
 
         [self.parent reloadTable];
         [addCourseAlert show];
@@ -49,7 +50,7 @@
         [[self navigationController]popViewControllerAnimated:YES ];
     }
     else{
-       theMessage = @"Don't leave inputs blank";
+       theMessage = @"Please enter a course name";
         UIAlertView* addCourseAlert = [[UIAlertView alloc] initWithTitle:@"Added the Course" message:theMessage delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
 
         [addCourseAlert show];

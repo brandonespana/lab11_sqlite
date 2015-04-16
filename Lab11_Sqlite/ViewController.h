@@ -13,6 +13,6 @@
 @property(strong, nonatomic)NSArray* studentResults;
 @property(strong, nonatomic)StudentsTableController* parent;
 
-
+-(void)reloadPickers;
 @end
 
