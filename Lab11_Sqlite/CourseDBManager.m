@@ -83,7 +83,7 @@
 }
 
 -(NSArray *)executeQuery:(NSString *)query {
-    NSLog(@"Executing this query: %@",query);
+    NSLog(@"EXECUTING EXECUTING this query: %@",query);
     sqlite3 * sqlite3DB;
     self.arrResults = [[NSMutableArray alloc] init];
     self.arrColNames = [[NSMutableArray alloc] init];

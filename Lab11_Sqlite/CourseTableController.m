@@ -80,17 +80,11 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSLog(@"Deleting a row");
-        // Delete the row from the data source
-        [self.courses removeObjectAtIndex:indexPath.row];
-        NSLog(@"deleted from data source");
+        
         NSString* selectedCourse = self.courses[indexPath.row];
         NSString* realString = [self.courses[indexPath.row] componentsJoinedByString:@","];
-        NSLog(@"type is: %@",[realString class]);
-        NSLog(@"selectedCours is: %@",realString);
-        //NSString* courseName = [selectedCourse stringByReplacingOccurrencesOfString:@"a" withString:@"3"];
-        NSLog(@"the SELECTED COURSE IS : %@",realString);
-        
+
+        [self.courses removeObjectAtIndex:indexPath.row];
         
         NSString* query1 = [NSString stringWithFormat:@"select courseid from course where coursename='%@';",realString];
         NSLog(@"The first query is: %@",query1);
@@ -105,14 +99,13 @@
         NSString* query3 = [NSString stringWithFormat:@"delete from course where coursename='%@';",realString];
         [self.dbManager executeUpdate:query3];
         
-        
-        
-        
-        
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+        
+        [self reloadTable];
+        
+    }
+    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+    }
 }
 
 

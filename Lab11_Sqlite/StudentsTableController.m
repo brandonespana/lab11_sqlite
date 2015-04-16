@@ -8,6 +8,7 @@
 
 #import "StudentsTableController.h"
 #import "CourseDBManager.h"
+#import "ViewController.h"
 
 @interface StudentsTableController ()
 @property(strong,nonatomic)NSArray* studentList;
@@ -17,13 +18,18 @@
 
 @implementation StudentsTableController
 
+//select name from student,studenttakes,course where course.coursename = 'Ser502 Emerging Langs' and course.courseid = studenttakes.courseid and student.studentid = studenttakes.studentid;
+//select name from student,studenttakes,course where course.coursename != 'Ser502 Emerging Langs' and course.courseid = studenttakes.courseid and student.studentid = studenttakes.studentid;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.query = [NSString stringWithFormat:@"select name from student,studenttakes,course where course.coursename = '%@' and course.courseid = studenttakes.courseid and student.studentid = studenttakes.studentid;",self.courseName];
 
     self.dbManager = [[CourseDBManager alloc]initDatabaseName:@"coursedb"];
     self.studentList = [self.dbManager executeQuery:self.query];
-    
+    NSLog(@"Type of one student : %@",[self.studentList[0] class]);
+    NSString* newTitle = [NSString stringWithFormat:@"In %@",self.courseName];
+    self.title = newTitle;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -37,16 +43,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return self.studentList.count;
 }
@@ -96,14 +98,27 @@
 }
 */
 
-/*
-#pragma mark - Navigation
+
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"studentDetail"]) {
+        NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
+        NSString* selectedStudent = [self.studentList[indexPath.row] componentsJoinedByString:@","];
+        NSString* studentQuery = [NSString stringWithFormat:@"select name,major,email,studentid from student where name='%@';",selectedStudent];
+        
+        NSArray* studentsResult = [self.dbManager executeQuery:studentQuery];
+        
+        ViewController* destination = segue.destinationViewController;
+        destination.studentResults = studentsResult;
+        
+    }
 }
-*/
+//name TEXT,
+//major TEXT,
+//email TEXT,
+//studentid INTEGER PRIMARY KEY
 
 @end

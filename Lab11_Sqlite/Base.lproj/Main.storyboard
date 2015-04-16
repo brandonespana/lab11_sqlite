@@ -58,7 +58,7 @@
             </objects>
             <point key="canvasLocation" x="313.5" y="1286.5"/>
         </scene>
-        <!--Students In Course-->
+        <!--In Course-->
         <scene sceneID="DKE-3m-5KP">
             <objects>
                 <tableViewController id="pL8-3V-oH6" customClass="StudentsTableController" sceneMemberID="viewController">
@@ -81,7 +81,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="3IR-In-tPO"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="studentDetail" id="3IR-In-tPO"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -90,7 +90,7 @@
                             <outlet property="delegate" destination="pL8-3V-oH6" id="Ys6-5m-kRo"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Students In Course" id="0aJ-og-cdr">
+                    <navigationItem key="navigationItem" title="In Course" id="0aJ-og-cdr">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ynr-e8-stJ">
                             <connections>
                                 <segue destination="ehx-uS-OJU" kind="show" id="Qvm-5i-79R"/>
@@ -283,12 +283,23 @@
                                 <state key="normal" title="Remove Student">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="removeStudent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PoD-14-04H"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="A Student" id="BAc-Tt-WYe"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="email" destination="zgv-hy-rq8" id="XZy-3y-XuP"/>
+                        <outlet property="enrolledCourses" destination="taR-jZ-10h" id="m9T-8k-D0q"/>
+                        <outlet property="major" destination="Ix2-ih-4Fr" id="obQ-45-Oco"/>
+                        <outlet property="name" destination="oN2-gP-zKJ" id="s77-V6-H3Y"/>
+                        <outlet property="notEnrolledCourses" destination="N6v-n8-7D4" id="CUB-za-q25"/>
+                        <outlet property="studentid" destination="wvR-Gc-WzE" id="7Tk-7H-fPy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

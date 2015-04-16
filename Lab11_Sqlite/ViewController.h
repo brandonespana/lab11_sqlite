@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface ViewController : UIViewController<UIPickerViewDelegate,UIPickerViewDataSource>
+@property(strong, nonatomic)NSArray* studentResults;
 
 @end
 
