@@ -2,9 +2,10 @@
 //  AppDelegate.h
 //  Lab11_Sqlite
 //
-//  Created by biespana on 4/8/15.
-//  Copyright (c) 2015 biespana. All rights reserved.
-//
+//  Copyright (c) 2015 Brandon Espana,
+//  @author: Brandon Espana mailto:biespana@asu.edu
+//  @Version: April 16, 2015
+//  The professor and TA have the right to build and evaluate this software package
 
 #import <UIKit/UIKit.h>
 

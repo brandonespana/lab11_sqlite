@@ -35,8 +35,8 @@
  * @author Tim Lindquist Tim.Lindquist@asu.edu
  *         Software Engineering, CIDSE, IAFSE, Arizona State University Polytechnic
  * Modified by: Brandon Espana
- * Modifications: Added functionality for lab 11
- * @version April 13, 2015
+ * Modifications: Added functionality for lab 11 to do insert and delete queries
+ * @version April 16, 2015
  */
 
 #import <Foundation/Foundation.h>

@@ -34,7 +34,9 @@
  *
  * @author Tim Lindquist Tim.Lindquist@asu.edu
  *         Software Engineering, CIDSE, IAFSE, Arizona State University Polytechnic
- * @version April 4, 2015
+ * Modified by: Brandon Espana
+ * Modifications: Added functionality for lab 11 to do insert and delete queries
+ * @version April 16, 2015
  */
 
 #import "CourseDBManager.h"
