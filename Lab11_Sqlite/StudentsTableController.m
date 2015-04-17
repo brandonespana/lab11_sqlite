@@ -9,6 +9,7 @@
 #import "StudentsTableController.h"
 #import "CourseDBManager.h"
 #import "ViewController.h"
+#import "AddStudentController.h"
 
 @interface StudentsTableController ()
 @property(strong,nonatomic)NSArray* studentList;
@@ -75,6 +76,10 @@
         destination.studentResults = studentsResult;
         destination.parent = self;
         
+    }
+    else if ([segue.identifier isEqualToString:@"addStudent"]){
+        AddStudentController* destination = segue.destinationViewController;
+        destination.parent = self;
     }
 }
 //name TEXT,

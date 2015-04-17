@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "CourseDBManager.h"
 #import "CourseTableController.h"
-@interface AddCourseController : UIViewController
+@interface AddCourseController : UIViewController<UITextFieldDelegate>
 @property(strong,nonatomic) CourseTableController* parent;
 @end

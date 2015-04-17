@@ -114,6 +114,7 @@
     [self.dbManager executeUpdate:deleteQuery];
     
     [self.parent reloadStudents];
+    [[self navigationController]popViewControllerAnimated:YES];
 }
 - (IBAction)dropCourse:(id)sender {
     if ([self.enrolledCourses hasText]) {

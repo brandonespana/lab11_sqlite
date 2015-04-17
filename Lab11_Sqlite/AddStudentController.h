@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "CourseDBManager.h"
+#import "StudentsTableController.h"
+#import <AddressBookUI/AddressBookUI.h>
 
-@interface AddStudentController : UIViewController<UIPickerViewDelegate, UIPickerViewDataSource>
+@interface AddStudentController : UIViewController<UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate,ABPeoplePickerNavigationControllerDelegate>
 @property(strong, nonatomic)CourseDBManager* dbManager;
-
+@property(strong,nonatomic)StudentsTableController* parent;
+-(void)displayPerson:(ABRecordRef) person;
 @end
